@@ -1,0 +1,37 @@
+{
+  "name": "nome-do-seu-app",
+  "version": "1.0.0",
+  "description": "Descrição do seu aplicativo",
+  "author": "Seu Nome",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64 --publish never"
+  },
+  "build": {
+    "appId": "com.seuapp.id",
+    "files": [
+      "main.js",
+      "src/404.html",
+      "src/assets/icon.ico",
+      "node_modules/"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "src/assets/icon.ico"
+    },
+    "directories": {
+      "output": "build"
+    }
+  },
+  "devDependencies": {
+    "electron": "^27.3.11",
+    "electron-builder": "^25.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.7.2"
+  }
+}
