@@ -17,7 +17,7 @@ function createWindow() {
             allowRunningInsecureContent: false
         }
     });
-    const url = 'http://realm.frostmournewow.online/mobileapp';
+    const url = 'http://127.0.0.1/mobileapp';
     axios.get(url)
         .then(response => {
             console.log('Site está disponível. Carregando URL...');
@@ -44,7 +44,7 @@ function createWindow() {
         console.log('Tentativa de abrir uma nova janela:', url);
     });
     win.webContents.on('will-navigate', (event, url) => {
-        if (url.startsWith('http://realm.frostmournewow.online/mobileapp')) {
+        if (url.startsWith('http://127.0.0.1/mobileapp')) {
             console.log('Navegação interna permitida para:', url);
         } else {
             console.log('Bloqueando navegação externa para:', url);
@@ -52,7 +52,7 @@ function createWindow() {
         }
     });
     win.webContents.on('will-redirect', (event, url) => {
-        if (url.startsWith('http://realm.frostmournewow.online/mobileapp')) {
+        if (url.startsWith('http://127.0.0.1/mobileapp')) {
             console.log('Redirecionamento interno permitido para:', url);
         } else {
             console.log('Bloqueando redirecionamento externo para:', url);
@@ -60,7 +60,7 @@ function createWindow() {
         }
     });
     win.webContents.setWindowOpenHandler(({ url }) => {
-        if (url.startsWith('http://realm.frostmournewow.online/mobileapp')) {
+        if (url.startsWith('http://127.0.0.1/mobileapp')) {
             console.log('Tentativa de abrir URL interna:', url);
             return { action: 'allow' };
         }
